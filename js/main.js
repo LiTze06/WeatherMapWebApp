@@ -8,9 +8,9 @@ function initMap() {
         zoom: 8,
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map = new google.maps.Map($('#map-canvas')[0], mapOptions);
     var geocoder = new google.maps.Geocoder();
-    document.getElementById('submitButton').addEventListener('click', function () {
+    $('#submitButton')[0].click(function () {
         geocodeAddress(geocoder, map);
     });
     // Add interaction listeners to make weather requests

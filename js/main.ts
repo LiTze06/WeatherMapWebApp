@@ -9,18 +9,17 @@ function initMap() {
         zoom: 8,
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
+    map = new google.maps.Map($('#map-canvas')[0],mapOptions);
 
     var geocoder = new google.maps.Geocoder();
-    document.getElementById('submitButton').addEventListener('click', function () {
+    $('#submitButton')[0].click( function () {
         geocodeAddress(geocoder, map);
     });
 
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
     // Sets up and populates the info window with details
-    map.data.addListener('click', function (event) {
+    map.data.click( function (event) {
         infowindow.setContent(
             "<img src=" + event.feature.getProperty("icon") + ">"
             + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
