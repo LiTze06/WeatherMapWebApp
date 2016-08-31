@@ -1,0 +1,42 @@
+html {
+  background-image: url("http://www.flipbooksoft.com/themes/default/images/player_bg/bg_wood_black.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+h1 {
+  font-size: 60px;
+  text-align: center; }
+
+#wrapper {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  height: 10%;
+  padding: 20px; }
+
+#submitButton {
+  color: black;
+  background-color: lightgreen; }
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: transparent;
+  color: white; }
+
+.appName {
+  border-bottom: 1px solid #e5e5e5; }
+
+#map-canvas {
+  width: 800px;
+  height: 600px;
+  margin: auto; }
+
+.gm-style-iw {
+  text-align: center; }
+
+#address {
+  color: black; }

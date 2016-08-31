@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather layer</title>
+    <!--Boostrap's CSS-->
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+</script>
+
+</head>
+
+<body>
+
+    <h1 id="appName">
+        <span class="glyphicon glyphicon-globe"></span>
+         Weather Map 
+        <span class="glyphicon glyphicon-pushpin"></span>
+    </h1>
+
+    <div id="wrapper">
+        Address:<input id="address" type="textbox" value="Auckland, New Zealand">
+        <input id="submitButton" type="button" value="Submit">
+    </div>
+
+    <div id="map-canvas"></div>
+
+    <!-- GoogleMap Script -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRcY0oEWz4VSthxtZ8y_4tgV-85n4Ejo&callback=initMap"></script>
+    <!--jQuery Script-->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!--Bootstrap Script-->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Custom Script-->
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
