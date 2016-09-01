@@ -10,7 +10,7 @@ function initMap() {
     };
     map = new google.maps.Map($('#map-canvas')[0], mapOptions);
     var geocoder = new google.maps.Geocoder();
-    $('#submitButton')[0].click(function () {
+    $("#submitButton")[0].click(function () {
         geocodeAddress(geocoder, map);
     });
     // Add interaction listeners to make weather requests

@@ -9,7 +9,7 @@ function initMap() {
         zoom: 8,
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
-    map = new google.maps.Map($('#map-canvas')[0],mapOptions);
+    map = new google.maps.Map($('#map-canvas')[0], mapOptions);
 
     var geocoder = new google.maps.Geocoder();
     $("#submitButton")[0].click( function () {
