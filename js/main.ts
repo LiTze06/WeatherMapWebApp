@@ -12,14 +12,14 @@ function initMap() {
     map = new google.maps.Map($('#map-canvas')[0],mapOptions);
 
     var geocoder = new google.maps.Geocoder();
-    $('#submitButton')[0].click( function () {
+    $("#submitButton")[0].click( function () {
         geocodeAddress(geocoder, map);
     });
 
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
     // Sets up and populates the info window with details
-    map.data.click( function (event) {
+    map.data.click(function (event) {
         infowindow.setContent(
             "<img src=" + event.feature.getProperty("icon") + ">"
             + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
@@ -42,7 +42,7 @@ function initMap() {
 
 
 function geocodeAddress(geocoder) {
-    var address = document.getElementById('address').value;
+    var address = $('#address')[0].value;
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
