@@ -3,6 +3,7 @@ var geoJSON;
 var request;
 var gettingData = false;
 var openWeatherMapKey = "6f6f42e65257899f09e1b2bc542f148b";
+var submitButton = $("#submitButton")[0];
 function initMap() {
     var mapOptions = {
         zoom: 8,
@@ -10,13 +11,13 @@ function initMap() {
     };
     map = new google.maps.Map($('#map-canvas')[0], mapOptions);
     var geocoder = new google.maps.Geocoder();
-    $("#submitButton")[0].click(function () {
+    submitButton.addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
     // Sets up and populates the info window with details
-    map.data.click(function (event) {
+    map.data.addEventListener('click', function (event) {
         infowindow.setContent("<img src=" + event.feature.getProperty("icon") + ">"
             + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
             + "<br />" + event.feature.getProperty("temperature") + "&deg;C"
