@@ -20,24 +20,19 @@ h1 {
   color: black;
   background-color: lightgreen; }
 
-/* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
   background: transparent;
   color: black; }
 
-.addressText{
-  color:white;
-}
-
 h1 {
   color: white;
 }
 
 #map-canvas {
-  width: 800px;
-  height: 600px;
+  width: 1200px;
+  height: 800px;
   margin: auto;
   background: black }
 

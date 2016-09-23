@@ -11,7 +11,15 @@ function initMap() {
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    // Add listeners to search city on google map
     var geocoder = new google.maps.Geocoder();
+    document.getElementById("address").addEventListener('keyup', function (event) {
+        event.preventDefault();
+        geocodeAddress(geocoder, map);
+        if (event.keyCode == 13) {
+            document.getElementById("address").click();
+        }
+    });
     document.getElementById('submitButton').addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
