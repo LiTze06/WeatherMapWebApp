@@ -62,9 +62,7 @@ function geocodeAddress(geocoder, map) {
                 map: map,
                 position: results[0].geometry.location
             });
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
+        } 
     });
 }
 
@@ -77,6 +75,7 @@ var checkIfDataRequested = function () {
     }
     getCoords();
 };
+
 // Get the coordinates from the Map bounds
 var getCoords = function () {
     var bounds = map.getBounds();
