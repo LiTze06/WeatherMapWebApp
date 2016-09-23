@@ -2,25 +2,27 @@ var map;
 var geoJSON;
 var request;
 var gettingData = false;
+let google: any;
+let value: any;
 var openWeatherMapKey = "6f6f42e65257899f09e1b2bc542f148b"
-var submitButton = $("#submitButton")[0];
 
 function initMap() {
     var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
-    map = new google.maps.Map($('#map-canvas')[0], mapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
 
     var geocoder = new google.maps.Geocoder();
-    submitButton.addEventListener('click', function () {
+    document.getElementById('submitButton').addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
 
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
     // Sets up and populates the info window with details
-    map.data.addEventListener('click', function (event) {
+    map.data.addListener('click', function (event) {
         infowindow.setContent(
             "<img src=" + event.feature.getProperty("icon") + ">"
             + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
@@ -42,8 +44,8 @@ function initMap() {
 }
 
 
-function geocodeAddress(geocoder) {
-    var address = $('#address')[0].value;
+function geocodeAddress(geocoder, map) {
+    var address = document.getElementById('address').value;
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
@@ -58,7 +60,7 @@ function geocodeAddress(geocoder) {
 }
 
 
-var checkIfDataRequested = function () :void {
+var checkIfDataRequested = function () {
     // Stop extra requests being sent
     while (gettingData === true) {
         request.abort();
@@ -67,7 +69,7 @@ var checkIfDataRequested = function () :void {
     getCoords();
 };
 // Get the coordinates from the Map bounds
-var getCoords = function () :void {
+var getCoords = function () {
     var bounds = map.getBounds();
     var NE = bounds.getNorthEast();
     var SW = bounds.getSouthWest();
@@ -88,7 +90,7 @@ var getWeather = function (northLat, eastLng, southLat, westLng) {
     request.send();
 };
 // Take the JSON results and proccess them
-var proccessResults = function () :void {
+var proccessResults = function () {
     console.log(this);
     var results = JSON.parse(this.responseText);
     if (results.list.length > 0) {
@@ -144,7 +146,7 @@ var drawIcons = function (weather) {
     gettingData = false;
 };
 // Clear data layer and geoJSON
-var resetData = function () :void {
+var resetData = function ()  {
     geoJSON = {
         type: "FeatureCollection",
         features: []
@@ -153,6 +155,4 @@ var resetData = function () :void {
         map.data.remove(feature);
     });
 };
-
-
 google.maps.event.addDomListener(window, 'load', initMap);

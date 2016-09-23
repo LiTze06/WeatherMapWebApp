@@ -2,22 +2,23 @@ var map;
 var geoJSON;
 var request;
 var gettingData = false;
+var google;
+var value;
 var openWeatherMapKey = "6f6f42e65257899f09e1b2bc542f148b";
-var submitButton = $("#submitButton")[0];
 function initMap() {
     var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(-36.8485, 174.7633)
     };
-    map = new google.maps.Map($('#map-canvas')[0], mapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     var geocoder = new google.maps.Geocoder();
-    submitButton.addEventListener('click', function () {
+    document.getElementById('submitButton').addEventListener('click', function () {
         geocodeAddress(geocoder, map);
     });
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
     // Sets up and populates the info window with details
-    map.data.addEventListener('click', function (event) {
+    map.data.addListener('click', function (event) {
         infowindow.setContent("<img src=" + event.feature.getProperty("icon") + ">"
             + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
             + "<br />" + event.feature.getProperty("temperature") + "&deg;C"
@@ -35,8 +36,8 @@ function initMap() {
         infowindow.open(map);
     });
 }
-function geocodeAddress(geocoder) {
-    var address = $('#address')[0].value;
+function geocodeAddress(geocoder, map) {
+    var address = document.getElementById('address').value;
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             map.setCenter(results[0].geometry.location);
