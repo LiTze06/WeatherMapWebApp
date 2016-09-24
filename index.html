@@ -3,35 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Now</title>
     <!--Boostrap's CSS-->
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="./css/main.css">
 </head>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
-</script>
 
 </head>
 
 <body>
 
     <h1 id="appName">
+         Weather Now
         <span class="glyphicon glyphicon-globe"></span>
-         Weather Map 
-        <span class="glyphicon glyphicon-pushpin"></span>
     </h1>
-
     <div id="wrapper">
-        <span style="color:white"> Address: </span>
-        <input id="address" type="textbox" value="Auckland, New Zealand">
-        <input id="submitButton" type="button" value="Submit">
+        <span style="color:white"> City:  </span>
+        <input id="cityInput" type="textbox" placeholder="Enter a city">
+        <button id="submitButton" type="submitButton" class="btn btn-info">
+             <span class="glyphicon glyphicon-search"></span> Search
+        </button>
     </div>
 
-    <div id="map-canvas"></div>
+    <div id="resultWrapper">
+        <p id="weatherIcon"><p>
+        <p id="city"><p>
+        <p id="temperature"></p>
+        <p id="displayResult"></p>
+    </div>
 
-    <!-- GoogleMap Script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRcY0oEWz4VSthxtZ8y_4tgV-85n4Ejo&callback=initMap"></script>
     <!--jQuery Script-->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <!--Bootstrap Script-->

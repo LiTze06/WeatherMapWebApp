@@ -1,43 +1,67 @@
 html {
-  background-image: url("http://www.flipbooksoft.com/themes/default/images/player_bg/bg_wood_black.jpg");
+  background: linear-gradient(to right, #4099FF, slateblue);
+  -webkit-input-placeholder: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
-h1 {
-  font-size: 60px;
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: transparent;
+  color: black;
+  font: 100% Helvetica, sans-serif;
+  font-size: 20px;
   text-align: center; }
 
-#wrapper {
-  margin: auto;
+h1 {
+  font-size: 60px;
   text-align: center;
-  width: 50%;
-  height: 10%;
-  padding: 20px; }
+  color: white; }
 
 #submitButton {
   color: black;
   background-color: lightgreen; }
 
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background: transparent;
+#wrapper {
+  padding: 10px; }
+
+#cityInput {
   color: black; }
 
-h1 {
-  color: white;
-}
+#resultWrapper {
+  text-align: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto; }
 
-#map-canvas {
-  width: 1200px;
-  height: 800px;
-  margin: auto;
-  background: black }
+#weatherIcon {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
 
-.gm-style-iw {
-  text-align: center; }
+#cityName {
+  font-size: 45px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
 
-#address {
-  color: black; }
+#temperatureInDegree {
+  font-size: 45px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+
+#weatherImg {
+  text-align: center;
+  width: 130px;
+  height: 120px;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#resultTable {
+  text-align: left;
+  width: 370px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+
+#displayResult {
+  padding-top: 10px; }
